@@ -1,0 +1,32 @@
+<?xml version='1.0' encoding='utf-8'?>
+<job-scheduling-data
+	xmlns="http://www.quartz-scheduler.org/xml/JobSchedulingData"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.quartz-scheduler.org/xml/JobSchedulingData http://www.quartz-scheduler.org/xml/job_scheduling_data_2_0.xsd"
+	version="2.0">
+	<schedule>
+		<!-- job1 -->
+		<job>
+			<name>AppJob</name>
+			<group>AppGroup</group>
+			<description>
+				通过配置文件来执行job任务
+			</description>
+			<job-class>
+				com.tangqiang.weixin.job.AppJob
+			</job-class>
+			<durability>false</durability>
+			<recover>false</recover>
+		</job>
+		<trigger>
+			<simple>
+				<name>triggerAppJob</name>
+				<group>AppGroup</group>
+				<job-name>AppJob</job-name>
+				<job-group>AppGroup</job-group>
+				<repeat-count>-1</repeat-count>
+				<repeat-interval>5000</repeat-interval>
+			</simple>
+		</trigger>
+	</schedule>
+</job-scheduling-data>
